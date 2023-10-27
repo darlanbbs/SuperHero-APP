@@ -25,12 +25,16 @@ function CatalogHeros() {
   const endIndex = paginaAtual * itensPorPagina;
   const dadosPaginados = dados ? dados.slice(startIndex, endIndex) : [];
   const pageLength = dados ? Math.ceil(dados.length / itensPorPagina) : 0;
-
   return (
     <div>
       {dadosPaginados.length > 0 ? (
         <div>
           <h1>Dados da API</h1>
+          <PaginationComponent
+            paginaAtual={paginaAtual}
+            setPaginaAtual={setPaginaAtual}
+            pageLength={pageLength}
+          />
           <pre>{JSON.stringify(dadosPaginados, null, 2)}</pre>
           <PaginationComponent
             paginaAtual={paginaAtual}

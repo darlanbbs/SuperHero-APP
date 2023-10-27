@@ -1,5 +1,6 @@
 import * as React from "react";
 import PaginationButton from "../buttons/PaginationButton/PaginationButton";
+import NextPreviousButton from "../buttons/NextPreviousButton/NextPreviousButton";
 
 interface PaginationProps {
   setPaginaAtual: React.Dispatch<React.SetStateAction<number>>;
@@ -21,12 +22,16 @@ export default function PaginationComponent({
       setPaginaAtual(paginaAtual - 1);
     }
   };
+
   return (
-    <div>
-      <button onClick={irParaPaginaAnterior} disabled={paginaAtual === 1}>
-        Página Anterior
-      </button>
-      <button onClick={irParaProximaPagina}>Próxima Página</button>
+    <div className="flex items-center justify-center space-x-4">
+      <NextPreviousButton
+        onHandleClick={irParaPaginaAnterior}
+        text="Página Anterior"
+        paginaAtual={paginaAtual}
+        paramDisbled={1}
+      />
+
       {Array.from({ length: pageLength }, (_, index) => (
         <PaginationButton
           key={index}
@@ -36,6 +41,13 @@ export default function PaginationComponent({
           paginasParaMostrar={4}
         />
       ))}
+
+      <NextPreviousButton
+        onHandleClick={irParaProximaPagina}
+        text="Proxima Página"
+        paginaAtual={paginaAtual}
+        paramDisbled={pageLength}
+      />
     </div>
   );
 }
