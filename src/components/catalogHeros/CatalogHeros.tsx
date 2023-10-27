@@ -2,16 +2,17 @@
 import { fetchApiData } from "@/app/config/db";
 import { useState, useEffect } from "react";
 import PaginationComponent from "../Pagination/Pagination";
+import { Superhero } from "@/Interface/DataInterface";
 
 function CatalogHeros() {
-  const [dados, setDados] = useState(null);
+  const [dados, setDados] = useState<Superhero[]>([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const itensPorPagina = 20;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchApiData(); 
+        const data = await fetchApiData();
         setDados(data);
       } catch (error) {
         console.error(error);
@@ -20,12 +21,10 @@ function CatalogHeros() {
     fetchData();
   }, []);
 
-  // Lógica para dividir os dados em páginas
   const startIndex = (paginaAtual - 1) * itensPorPagina;
   const endIndex = paginaAtual * itensPorPagina;
   const dadosPaginados = dados ? dados.slice(startIndex, endIndex) : [];
-
-
+  const pageLength = dados ? Math.ceil(dados.length / itensPorPagina) : 0;
 
   return (
     <div>
@@ -33,7 +32,11 @@ function CatalogHeros() {
         <div>
           <h1>Dados da API</h1>
           <pre>{JSON.stringify(dadosPaginados, null, 2)}</pre>
-          <PaginationComponent paginaAtual={paginaAtual} setPaginaAtual={setPaginaAtual}/>
+          <PaginationComponent
+            paginaAtual={paginaAtual}
+            setPaginaAtual={setPaginaAtual}
+            pageLength={pageLength}
+          />
         </div>
       ) : (
         <p>Carregando dados...</p>
