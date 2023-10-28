@@ -4,6 +4,7 @@ import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import Button from "@mui/material/Button";
 import { useForm } from "@/context/BattleContext";
+import BattleModal from "../modal/BattleModal";
 
 export default function ToastBattle() {
   const { useContext, setUseContext } = useForm();
@@ -31,7 +32,7 @@ export default function ToastBattle() {
           }
           sx={{ mb: 2 }}
         >
-          Close me!
+          <BattleModal />
         </Alert>
       </Collapse>
     </Box>
