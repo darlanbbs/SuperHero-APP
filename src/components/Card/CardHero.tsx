@@ -2,15 +2,6 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-import {
-  GiArm,
-  GiBrain,
-  GiLeg,
-  GiStomach,
-  GiPowerButton,
-  GiSwordsPower,
-} from "react-icons/gi";
-import { MdOutlineExpandMore } from "react-icons/md";
 import Image from "next/image";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -18,6 +9,16 @@ import Collapse from "@mui/material/Collapse";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { Superhero } from "@/Types/DataInterface";
+
+//icons
+
+import CombatIcon from "../Icons/StatsIcons/CombatIcon";
+import IntelligenceIcon from "../Icons/StatsIcons/IntelligenceIcon";
+import StrengthIcon from "../Icons/StatsIcons/StrengthIcon";
+import SpeedIcon from "../Icons/StatsIcons/SpeedIcon";
+import DurabilityIcon from "../Icons/StatsIcons/DurabilityIcon";
+import PowerIcon from "../Icons/StatsIcons/PowerIcon";
+import ExpandIcon from "../Icons/CardIcon/ExpandIcon";
 
 interface CardHeroProps {
   superhero: Superhero;
@@ -65,7 +66,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
       <CardContent>
         <div className="grid grid-cols-2 gap-2">
           <div className="flex items-center">
-            <GiBrain className="text-blue-500" />
+            <IntelligenceIcon />
             <Typography variant="body2" color="text.secondary">
               Intelligence:{" "}
               {superhero.powerstats
@@ -74,7 +75,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
             </Typography>
           </div>
           <div className="flex items-center">
-            <GiArm className="text-red-500" />
+            <StrengthIcon />
             <Typography variant="body2" color="text.secondary">
               Strength:{" "}
               {superhero.powerstats
@@ -83,7 +84,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
             </Typography>
           </div>
           <div className="flex items-center">
-            <GiLeg className="text-green-500" />
+            <SpeedIcon />
             <Typography variant="body2" color="text.secondary">
               Speed:{" "}
               {superhero.powerstats
@@ -92,7 +93,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
             </Typography>
           </div>
           <div className="flex items-center">
-            <GiStomach className="text-yellow-500" />
+            <DurabilityIcon />
             <Typography variant="body2" color="text.secondary">
               Durability:{" "}
               {superhero.powerstats
@@ -101,7 +102,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
             </Typography>
           </div>
           <div className="flex items-center">
-            <GiPowerButton className="text-pink-500" />
+            <PowerIcon />
             <Typography variant="body2" color="text.secondary">
               Power:{" "}
               {superhero.powerstats
@@ -110,7 +111,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
             </Typography>
           </div>
           <div className="flex items-center">
-            <GiSwordsPower className="text-purple-500" />
+            <CombatIcon />
             <Typography variant="body2" color="text.secondary">
               Combat:{" "}
               {superhero.powerstats
@@ -127,7 +128,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <MdOutlineExpandMore />
+          <ExpandIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
