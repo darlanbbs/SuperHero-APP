@@ -27,7 +27,7 @@ export default function PaginationComponent({
     <div className="flex items-center justify-center space-x-4">
       <NextPreviousButton
         onHandleClick={irParaPaginaAnterior}
-        text="Página Anterior"
+        text="Previous Page"
         paginaAtual={paginaAtual}
         paramDisbled={1}
       />
@@ -44,7 +44,7 @@ export default function PaginationComponent({
 
       <NextPreviousButton
         onHandleClick={irParaProximaPagina}
-        text="Proxima Página"
+        text="Next Page"
         paginaAtual={paginaAtual}
         paramDisbled={pageLength}
       />

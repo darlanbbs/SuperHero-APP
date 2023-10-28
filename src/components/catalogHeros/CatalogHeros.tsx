@@ -51,7 +51,7 @@ function CatalogHeros() {
           />
         </div>
       ) : (
-        <p>Carregando dados...</p>
+        <p>Loadind data...</p>
       )}
     </div>
   );

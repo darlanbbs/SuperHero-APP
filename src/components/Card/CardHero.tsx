@@ -46,11 +46,10 @@ export default function CardHero({ superhero }: CardHeroProps) {
   };
 
   return (
-
     <Card sx={{ maxWidth: 400 }}>
       <CardHeader
-        title={superhero.biography.fullName || "Nome não disponível"}
-        subheader={superhero.slug || "Slug não disponível"}
+        title={superhero.biography.fullName || "Name not available"}
+        subheader={superhero.slug || "Slug not available"}
       />
       <div className="relative w-48 mx-auto">
         {superhero.images && superhero.images.lg && (
@@ -71,7 +70,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
               Intelligence:{" "}
               {superhero.powerstats
                 ? superhero.powerstats.intelligence
-                : "Não disponível"}
+                : "not available"}
             </Typography>
           </div>
           <div className="flex items-center">
@@ -80,7 +79,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
               Strength:{" "}
               {superhero.powerstats
                 ? superhero.powerstats.strength
-                : "Não disponível"}
+                : "not available"}
             </Typography>
           </div>
           <div className="flex items-center">
@@ -89,7 +88,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
               Speed:{" "}
               {superhero.powerstats
                 ? superhero.powerstats.speed
-                : "Não disponível"}
+                : "not available"}
             </Typography>
           </div>
           <div className="flex items-center">
@@ -98,7 +97,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
               Durability:{" "}
               {superhero.powerstats
                 ? superhero.powerstats.durability
-                : "Não disponível"}
+                : "not available"}
             </Typography>
           </div>
           <div className="flex items-center">
@@ -107,7 +106,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
               Power:{" "}
               {superhero.powerstats
                 ? superhero.powerstats.power
-                : "Não disponível"}
+                : "not available"}
             </Typography>
           </div>
           <div className="flex items-center">
@@ -116,7 +115,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
               Combat:{" "}
               {superhero.powerstats
                 ? superhero.powerstats.combat
-                : "Não disponível"}
+                : "not available"}
             </Typography>
           </div>
         </div>
@@ -141,37 +140,37 @@ export default function CardHero({ superhero }: CardHeroProps) {
                 Gender:{" "}
                 {superhero.appearance
                   ? superhero.appearance.gender
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Race:{" "}
                 {superhero.appearance
                   ? superhero.appearance.race
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Height:{" "}
                 {superhero.appearance
                   ? superhero.appearance.height.join(", ")
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Weight:{" "}
                 {superhero.appearance
                   ? superhero.appearance.weight.join(", ")
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Eye Color:{" "}
                 {superhero.appearance
                   ? superhero.appearance.eyeColor
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Hair Color:{" "}
                 {superhero.appearance
                   ? superhero.appearance.hairColor
-                  : "Não disponível"}
+                  : "not available"}
               </li>
             </ul>
           </div>
@@ -182,43 +181,43 @@ export default function CardHero({ superhero }: CardHeroProps) {
                 Full Name:{" "}
                 {superhero.biography
                   ? superhero.biography.fullName
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Alter Egos:{" "}
                 {superhero.biography
                   ? superhero.biography.alterEgos
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Aliases:{" "}
                 {superhero.biography
                   ? superhero.biography.aliases.join(", ")
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Place of Birth:{" "}
                 {superhero.biography
                   ? superhero.biography.placeOfBirth
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 First Appearance:{" "}
                 {superhero.biography
                   ? superhero.biography.firstAppearance
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Publisher:{" "}
                 {superhero.biography
                   ? superhero.biography.publisher
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Alignment:{" "}
                 {superhero.biography
                   ? superhero.biography.alignment
-                  : "Não disponível"}
+                  : "not available"}
               </li>
             </ul>
           </div>
@@ -227,10 +226,10 @@ export default function CardHero({ superhero }: CardHeroProps) {
             <ul>
               <li>
                 Occupation:{" "}
-                {superhero.work ? superhero.work.occupation : "Não disponível"}
+                {superhero.work ? superhero.work.occupation : "not available"}
               </li>
               <li>
-                Base: {superhero.work ? superhero.work.base : "Não disponível"}
+                Base: {superhero.work ? superhero.work.base : "not available"}
               </li>
             </ul>
           </div>
@@ -241,13 +240,13 @@ export default function CardHero({ superhero }: CardHeroProps) {
                 Group Affiliation:{" "}
                 {superhero.connections
                   ? superhero.connections.groupAffiliation
-                  : "Não disponível"}
+                  : "not available"}
               </li>
               <li>
                 Relatives:{" "}
                 {superhero.connections
                   ? superhero.connections.relatives
-                  : "Não disponível"}
+                  : "not available"}
               </li>
             </ul>
           </div>
