@@ -3,11 +3,11 @@ import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import Button from "@mui/material/Button";
-import { FaTimes } from "react-icons/fa";
-import { BiTrash } from "react-icons/bi";
 
 import { useForm } from "@/context/BattleContext";
 import BattleModal from "../modal/BattleModal";
+import TrashIcon from "../Icons/ToastIcon/TrashIcon";
+import CloseIcon from "../Icons/ToastIcon/CloseIcon";
 
 export default function ToastBattle() {
   const { useContext, setUseContext } = useForm();
@@ -50,7 +50,7 @@ export default function ToastBattle() {
                   size="small"
                   onClick={unChoseHeroOne}
                 >
-                  <BiTrash />
+                  <TrashIcon />
                   Heroi 1 Escolhido
                 </Button>
               )}
@@ -62,7 +62,7 @@ export default function ToastBattle() {
                   size="small"
                   onClick={unChoseHeroTwo}
                 >
-                  <BiTrash />
+                  <TrashIcon />
                   Heroi 2 Escolhido
                 </Button>
               )}
@@ -72,7 +72,7 @@ export default function ToastBattle() {
                 size="small"
                 onClick={closeToast}
               >
-                <FaTimes />
+                <CloseIcon />
                 Fechar
               </Button>
             </div>
