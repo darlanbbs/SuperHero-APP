@@ -1,8 +1,10 @@
 "use client";
-import { fetchApiData } from "@/app/config/db";
 import { useState, useEffect } from "react";
 import PaginationComponent from "../Pagination/Pagination";
-import { Superhero } from "@/Interface/DataInterface";
+import { Superhero } from "@/Types/DataInterface";
+import { fetchApiData } from "@/services/db";
+import CardHero from "../Card/CardHero";
+import { Grid } from "@mui/material";
 
 function CatalogHeros() {
   const [dados, setDados] = useState<Superhero[]>([]);
@@ -35,7 +37,13 @@ function CatalogHeros() {
             setPaginaAtual={setPaginaAtual}
             pageLength={pageLength}
           />
-          <pre>{JSON.stringify(dadosPaginados, null, 2)}</pre>
+          <Grid container spacing={4}>
+            {dadosPaginados.map((item) => (
+              <Grid key={item.id} item xs={12} sm={6} md={4}>
+                <CardHero superhero={item} key={item.id} />
+              </Grid>
+            ))}
+          </Grid>
           <PaginationComponent
             paginaAtual={paginaAtual}
             setPaginaAtual={setPaginaAtual}
