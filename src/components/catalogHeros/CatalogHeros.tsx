@@ -5,6 +5,7 @@ import { Superhero } from "@/Types/DataInterface";
 import { fetchApiData } from "@/services/db";
 import CardHero from "../Card/CardHero";
 import { Grid } from "@mui/material";
+import ToastBattle from "../Toast/ToastBattle";
 
 function CatalogHeros() {
   const [dados, setDados] = useState<Superhero[]>([]);
@@ -28,7 +29,7 @@ function CatalogHeros() {
   const dadosPaginados = dados ? dados.slice(startIndex, endIndex) : [];
   const pageLength = dados ? Math.ceil(dados.length / itensPorPagina) : 0;
   return (
-    <div>
+    <div className="relative">
       {dadosPaginados.length > 0 ? (
         <div>
           <h1>Dados da API</h1>
@@ -44,6 +45,9 @@ function CatalogHeros() {
             setPaginaAtual={setPaginaAtual}
             pageLength={pageLength}
           />
+          <div className="fixed bottom-2 left-2">
+            <ToastBattle />
+          </div>
         </div>
       ) : (
         <p>Loadind data...</p>

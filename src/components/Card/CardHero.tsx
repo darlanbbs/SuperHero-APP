@@ -19,6 +19,7 @@ import SpeedIcon from "../Icons/StatsIcons/SpeedIcon";
 import DurabilityIcon from "../Icons/StatsIcons/DurabilityIcon";
 import PowerIcon from "../Icons/StatsIcons/PowerIcon";
 import ExpandIcon from "../Icons/CardIcon/ExpandIcon";
+import BattleButton from "../Buttons/BattleButton/BattleButton";
 
 interface CardHeroProps {
   superhero: Superhero;
@@ -122,6 +123,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
         </div>
       </CardContent>
       <CardActions disableSpacing>
+        <BattleButton />
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
