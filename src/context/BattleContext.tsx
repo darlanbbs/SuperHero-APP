@@ -20,7 +20,7 @@ export const MyContext = createContext<MyContextData>({} as MyContextData);
 
 export const MyContextProvider = ({ children }: MyContextProps) => {
   const [useContext, setUseContext] = useState<BattleContext>({
-    open: true,
+    open: false,
     playerOne: 0,
     playerTwo: 0,
   });
