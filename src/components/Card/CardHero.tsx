@@ -137,7 +137,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
         <CardContent>
           <Typography paragraph>Details:</Typography>
           <div>
-            <strong>Aparência:</strong>
+            <strong>Appearance:</strong>
             <ul>
               <li>
                 Gender:{" "}
