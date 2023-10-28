@@ -24,7 +24,7 @@ export default function PaginationComponent({
   };
 
   return (
-    <div className="flex items-center justify-center space-x-4">
+    <div className="flex items-center justify-center space-x-4 my-4">
       <NextPreviousButton
         onHandleClick={irParaPaginaAnterior}
         text="Previous Page"

@@ -32,11 +32,6 @@ function CatalogHeros() {
       {dadosPaginados.length > 0 ? (
         <div>
           <h1>Dados da API</h1>
-          <PaginationComponent
-            paginaAtual={paginaAtual}
-            setPaginaAtual={setPaginaAtual}
-            pageLength={pageLength}
-          />
           <Grid container spacing={4}>
             {dadosPaginados.map((item) => (
               <Grid key={item.id} item xs={12} sm={6} md={4}>
