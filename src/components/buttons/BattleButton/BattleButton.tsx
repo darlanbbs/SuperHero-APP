@@ -27,7 +27,6 @@ const BattleButton = ({ id }: PropsBattle) => {
         playerTwo: id,
       }));
     }
-    console.log(useContext);
   };
 
   return (
