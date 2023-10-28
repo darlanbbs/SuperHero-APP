@@ -123,7 +123,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
         </div>
       </CardContent>
       <CardActions disableSpacing>
-        <BattleButton />
+        <BattleButton id={superhero.id} />
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

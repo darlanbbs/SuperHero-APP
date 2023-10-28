@@ -1,10 +1,12 @@
-import { useForm } from "@/context/BattleContext";
+import { useForm } from "./../../../context/BattleContext";
 import { Button } from "@mui/material";
 import React from "react";
 
-type Props = {};
+interface PropsBattle {
+  id: number;
+}
 
-const BattleButton = (props: Props) => {
+const BattleButton = ({ id }: PropsBattle) => {
   const { useContext, setUseContext } = useForm();
 
   const openToast = () => {
@@ -12,6 +14,20 @@ const BattleButton = (props: Props) => {
       ...prevState,
       open: true,
     }));
+    if (useContext.playerOne === 0) {
+      setUseContext((prevState: any) => ({
+        ...prevState,
+        playerOne: id,
+      }));
+    }
+
+    if (useContext.playerOne !== 0) {
+      setUseContext((prevState: any) => ({
+        ...prevState,
+        playerTwo: id,
+      }));
+    }
+    console.log(useContext);
   };
 
   return (
