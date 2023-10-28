@@ -32,7 +32,6 @@ function CatalogHeros() {
     <div className="relative">
       {dadosPaginados.length > 0 ? (
         <div>
-          <h1>Dados da API</h1>
           <Grid container spacing={4}>
             {dadosPaginados.map((item) => (
               <Grid key={item.id} item xs={12} sm={6} md={4}>
