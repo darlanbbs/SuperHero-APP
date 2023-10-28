@@ -1,4 +1,3 @@
-// Adicione os imports necessários
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -8,12 +7,9 @@ import Modal from "@mui/material/Modal";
 import { fetchApiData } from "@/services/db";
 import { useForm } from "@/context/BattleContext";
 import { Superhero } from "@/Types/DataInterface";
-import CombatIcon from "../Icons/StatsIcons/CombatIcon";
-import DurabilityIcon from "../Icons/StatsIcons/DurabilityIcon";
-import IntelligenceIcon from "../Icons/StatsIcons/IntelligenceIcon";
-import PowerIcon from "../Icons/StatsIcons/PowerIcon";
-import SpeedIcon from "../Icons/StatsIcons/SpeedIcon";
-import StrengthIcon from "../Icons/StatsIcons/StrengthIcon";
+
+import WinnerMessage from "./WinnerMessage/WinnerMessage";
+import PlayerStatus from "./PlayerStatus/PlayerStatus";
 
 const style = {
   position: "absolute",
@@ -34,6 +30,17 @@ export default function BasicModal() {
   const [playerOne, setPlayerOne] = React.useState<Superhero | null>(null);
   const [playerTwo, setPlayerTwo] = React.useState<Superhero | null>(null);
   const { useContext } = useForm();
+
+  const calcularPontuacao = (player: Superhero) => {
+    return (
+      player.powerstats.combat +
+      player.powerstats.durability +
+      player.powerstats.intelligence +
+      player.powerstats.power +
+      player.powerstats.speed +
+      player.powerstats.strength
+    );
+  };
 
   const fetchData = async () => {
     try {
@@ -56,6 +63,22 @@ export default function BasicModal() {
     setOpen(true);
   };
 
+  const getWinner = () => {
+    if (playerOne && playerTwo) {
+      const pontuacaoPlayerOne = calcularPontuacao(playerOne);
+      const pontuacaoPlayerTwo = calcularPontuacao(playerTwo);
+
+      return pontuacaoPlayerOne > pontuacaoPlayerTwo
+        ? playerOne.name
+        : pontuacaoPlayerOne < pontuacaoPlayerTwo
+        ? playerTwo.name
+        : "Empate";
+    }
+
+    return "Empate";
+  };
+
+  const winner = getWinner();
   const handleClose = () => setOpen(false);
 
   return (
@@ -75,74 +98,39 @@ export default function BasicModal() {
         <Box sx={style} className="flex space-x-4 justify-center">
           {playerOne && playerTwo && (
             <>
-              <div className="flex flex-col items-center">
-                <img
-                  src={playerOne.images.lg}
-                  alt={playerOne.name}
-                  className="mb-2"
-                />
-                <Typography variant="h6" component="h2">
-                  {playerOne.name ? playerOne.name : "Player One"}
-                </Typography>
-                <div className="flex items-center">
-                  <CombatIcon />
-                  <span>{playerOne.powerstats.combat}</span>
-                </div>
-                <div className="flex items-center">
-                  <DurabilityIcon />
-                  <span>{playerOne.powerstats.durability}</span>
-                </div>
-                <div className="flex items-center">
-                  <IntelligenceIcon />
-                  <span>{playerOne.powerstats.intelligence}</span>
-                </div>
-                <div className="flex items-center">
-                  <PowerIcon />
-                  <span>{playerOne.powerstats.power}</span>
-                </div>
-                <div className="flex items-center">
-                  <SpeedIcon />
-                  <span>{playerOne.powerstats.speed}</span>
-                </div>
-                <div className="flex items-center">
-                  <StrengthIcon />
-                  <span>{playerOne.powerstats.strength}</span>
-                </div>
+              <PlayerStatus
+                combat={playerOne.powerstats.combat}
+                durability={playerOne.powerstats.durability}
+                image={playerOne.images.lg}
+                intelligence={playerOne.powerstats.intelligence}
+                name={playerOne.name}
+                power={playerOne.powerstats.power}
+                speed={playerOne.powerstats.speed}
+                strength={playerOne.powerstats.strength}
+                player="One"
+              />
+              <div className="flex flex-col items-center justify-end ">
+                <WinnerMessage winner={winner} />
+                <ul>
+                  <li>Combat</li>
+                  <li>Durability</li>
+                  <li>Intelligence</li>
+                  <li>Power</li>
+                  <li>Speed</li>
+                  <li>Strength</li>
+                </ul>
               </div>
-              <div className="flex flex-col items-center">
-                <img
-                  src={playerTwo.images.lg}
-                  alt={playerTwo.name}
-                  className="mb-2"
-                />
-                <Typography variant="h6" component="h2">
-                  {playerTwo.name ? playerTwo.name : "Player Two"}
-                </Typography>
-                <div className="flex items-center">
-                  <CombatIcon />
-                  <span>{playerTwo.powerstats.combat}</span>
-                </div>
-                <div className="flex items-center">
-                  <DurabilityIcon />
-                  <span>{playerTwo.powerstats.durability}</span>
-                </div>
-                <div className="flex items-center">
-                  <IntelligenceIcon />
-                  <span>{playerTwo.powerstats.intelligence}</span>
-                </div>
-                <div className="flex items-center">
-                  <PowerIcon />
-                  <span>{playerTwo.powerstats.power}</span>
-                </div>
-                <div className="flex items-center">
-                  <SpeedIcon />
-                  <span>{playerTwo.powerstats.speed}</span>
-                </div>
-                <div className="flex items-center">
-                  <StrengthIcon />
-                  <span>{playerTwo.powerstats.strength}</span>
-                </div>
-              </div>
+              <PlayerStatus
+                combat={playerTwo.powerstats.combat}
+                durability={playerTwo.powerstats.durability}
+                image={playerTwo.images.lg}
+                intelligence={playerTwo.powerstats.intelligence}
+                name={playerTwo.name}
+                power={playerTwo.powerstats.power}
+                speed={playerTwo.powerstats.speed}
+                strength={playerTwo.powerstats.strength}
+                player="Two"
+              />
             </>
           )}
         </Box>
