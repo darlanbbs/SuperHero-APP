@@ -51,7 +51,7 @@ export default function ToastBattle() {
                   onClick={unChoseHeroOne}
                 >
                   <TrashIcon />
-                  Heroi 1 Escolhido
+                  Hero 1 Chosen
                 </Button>
               )}
 
@@ -63,7 +63,7 @@ export default function ToastBattle() {
                   onClick={unChoseHeroTwo}
                 >
                   <TrashIcon />
-                  Heroi 2 Escolhido
+                  Hero 2 Chosen
                 </Button>
               )}
               <Button
@@ -73,7 +73,7 @@ export default function ToastBattle() {
                 onClick={closeToast}
               >
                 <CloseIcon />
-                Fechar
+                Close
               </Button>
             </div>
           }
