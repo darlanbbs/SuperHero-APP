@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
 import { fetchApiData } from "@/services/db";
@@ -29,18 +28,7 @@ export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const [playerOne, setPlayerOne] = React.useState<Superhero | null>(null);
   const [playerTwo, setPlayerTwo] = React.useState<Superhero | null>(null);
-  const { useContext } = useForm();
-
-  const calcularPontuacao = (player: Superhero) => {
-    return (
-      player.powerstats.combat +
-      player.powerstats.durability +
-      player.powerstats.intelligence +
-      player.powerstats.power +
-      player.powerstats.speed +
-      player.powerstats.strength
-    );
-  };
+  const { useContext, setUseContext } = useForm();
 
   const fetchData = async () => {
     try {
@@ -58,9 +46,15 @@ export default function BasicModal() {
     }
   };
 
-  const handleOpen = () => {
-    fetchData();
-    setOpen(true);
+  const calcularPontuacao = (player: Superhero) => {
+    return (
+      player.powerstats.combat +
+      player.powerstats.durability +
+      player.powerstats.intelligence +
+      player.powerstats.power +
+      player.powerstats.speed +
+      player.powerstats.strength
+    );
   };
 
   const getWinner = () => {
@@ -79,15 +73,42 @@ export default function BasicModal() {
   };
 
   const winner = getWinner();
-  const handleClose = () => setOpen(false);
+
+  const resetValues = () => {
+    setUseContext((prevState: any) => ({
+      ...prevState,
+      open: false,
+    }));
+
+    setUseContext((prevState: any) => ({
+      ...prevState,
+      playerOne: 0,
+    }));
+    setUseContext((prevState: any) => ({
+      ...prevState,
+      playerTwo: 0,
+    }));
+  };
+
+  const handleOpen = () => {
+    fetchData();
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    resetValues();
+  };
 
   return (
     <div>
       <Button
+        variant="contained"
+        color="error"
         onClick={handleOpen}
         disabled={useContext.playerOne === 0 || useContext.playerTwo === 0}
       >
-        Open modal
+        Battle
       </Button>
       <Modal
         open={open}
