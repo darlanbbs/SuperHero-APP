@@ -1,12 +1,11 @@
-import { useForm } from "./../../../context/BattleContext";
-import { Button } from "@mui/material";
 import React from "react";
+import { useForm } from "./../../../context/BattleContext";
 
-interface PropsBattle {
+interface ButtonBattleProps {
   id: number;
 }
 
-const BattleButton = ({ id }: PropsBattle) => {
+const BattleButton = ({ id }: ButtonBattleProps) => {
   const { useContext, setUseContext } = useForm();
 
   const openToast = () => {
@@ -14,14 +13,13 @@ const BattleButton = ({ id }: PropsBattle) => {
       ...prevState,
       open: true,
     }));
+
     if (useContext.playerOne === 0) {
       setUseContext((prevState: any) => ({
         ...prevState,
         playerOne: id,
       }));
-    }
-
-    if (useContext.playerOne !== 0) {
+    } else if (useContext.playerOne !== 0) {
       setUseContext((prevState: any) => ({
         ...prevState,
         playerTwo: id,
@@ -30,9 +28,12 @@ const BattleButton = ({ id }: PropsBattle) => {
   };
 
   return (
-    <Button variant="contained" color="error" onClick={openToast}>
+    <button
+      className="bg-red-500 text-white px-4 py-2 rounded"
+      onClick={openToast}
+    >
       Battle
-    </Button>
+    </button>
   );
 };
 

@@ -4,12 +4,7 @@ import Header from "@/components/Header/Header";
 export default function Home() {
   return (
     <MyContextProvider>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <CatalogHeros />
-      </main>
+      <CatalogHeros />
     </MyContextProvider>
   );
 }
