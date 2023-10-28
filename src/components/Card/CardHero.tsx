@@ -47,7 +47,7 @@ export default function CardHero({ superhero }: CardHeroProps) {
   };
 
   return (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ flexGrow: 1 }}>
       <CardHeader
         title={superhero.biography.fullName || "Name not available"}
         subheader={superhero.slug || "Slug not available"}
