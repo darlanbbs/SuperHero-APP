@@ -1,10 +1,10 @@
-import CatalogHeros from "@/components/catalogHeros/CatalogHeros";
-
+import CatalogHeros from "@/components/CatalogHeros/CatalogHeros";
+import { MyContextProvider } from "./../context/BattleContext";
 export default function Home() {
   return (
-    <main>
+    <MyContextProvider>
       pagina inicial
       <CatalogHeros />
-    </main>
+    </MyContextProvider>
   );
 }
