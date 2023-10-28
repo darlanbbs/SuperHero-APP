@@ -1,6 +1,6 @@
 import * as React from "react";
-import PaginationButton from "../buttons/PaginationButton/PaginationButton";
-import NextPreviousButton from "../buttons/NextPreviousButton/NextPreviousButton";
+import NextPreviousButton from "../Buttons/NextPreviousButton/NextPreviousButton";
+import PaginationButton from "../Buttons/PaginationButton/PaginationButton";
 
 interface PaginationProps {
   setPaginaAtual: React.Dispatch<React.SetStateAction<number>>;
