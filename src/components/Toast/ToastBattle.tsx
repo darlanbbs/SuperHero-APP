@@ -4,7 +4,7 @@ import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import Button from "@mui/material/Button";
 
-import { useForm } from "@/context/BattleContext";
+import { useForm } from "../../context/BattleContext";
 import BattleModal from "../modal/BattleModal";
 import TrashIcon from "../Icons/ToastIcon/TrashIcon";
 import CloseIcon from "../Icons/ToastIcon/CloseIcon";

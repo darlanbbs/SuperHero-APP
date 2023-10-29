@@ -1,9 +1,9 @@
-import CombatIcon from "@/components/Icons/StatsIcons/CombatIcon";
-import DurabilityIcon from "@/components/Icons/StatsIcons/DurabilityIcon";
-import IntelligenceIcon from "@/components/Icons/StatsIcons/IntelligenceIcon";
-import PowerIcon from "@/components/Icons/StatsIcons/PowerIcon";
-import SpeedIcon from "@/components/Icons/StatsIcons/SpeedIcon";
-import StrengthIcon from "@/components/Icons/StatsIcons/StrengthIcon";
+import CombatIcon from "../../Icons/StatsIcons/CombatIcon";
+import DurabilityIcon from "../../Icons/StatsIcons/DurabilityIcon";
+import IntelligenceIcon from "../../Icons/StatsIcons/IntelligenceIcon";
+import PowerIcon from "../../Icons/StatsIcons/PowerIcon";
+import SpeedIcon from "../../Icons/StatsIcons/SpeedIcon";
+import StrengthIcon from "../../Icons/StatsIcons/StrengthIcon";
 import { Typography } from "@mui/material";
 import React from "react";
 

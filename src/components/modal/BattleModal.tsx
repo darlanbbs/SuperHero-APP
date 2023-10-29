@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 
-import { fetchApiData } from "@/services/db";
+import { fetchApiData } from "../../services/db";
 import { useForm } from "@/context/BattleContext";
-import { Superhero } from "@/Types/DataInterface";
+import { Superhero } from "../../Types/DataInterface";
 
 import WinnerMessage from "./WinnerMessage/WinnerMessage";
 import PlayerStatus from "./PlayerStatus/PlayerStatus";

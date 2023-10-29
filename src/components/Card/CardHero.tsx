@@ -8,7 +8,7 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { Superhero } from "@/Types/DataInterface";
+import { Superhero } from "./../../Types/DataInterface";
 
 //icons
 

@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import PaginationComponent from "../Pagination/Pagination";
-import { Superhero } from "@/Types/DataInterface";
-import { fetchApiData } from "@/services/db";
+import { Superhero } from "../../Types/DataInterface";
+import { fetchApiData } from "../../services/db";
 import CardHero from "../Card/CardHero";
 import { Grid } from "@mui/material";
 import ToastBattle from "../Toast/ToastBattle";
