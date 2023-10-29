@@ -32,12 +32,11 @@ export default function BasicModal() {
 
   const fetchData = async () => {
     try {
-      const dataPlayerOne = await fetchApiData();
-      const dataPlayerTwo = await fetchApiData();
-      const PlayerOne = dataPlayerOne.data.data.find(
+      const data = await fetchApiData();
+      const PlayerOne = data.data.find(
         (item: Superhero) => item.id === useContext.playerOne
       );
-      const PlayerTwo = dataPlayerTwo.data.data.find(
+      const PlayerTwo = data.data.find(
         (item: Superhero) => item.id === useContext.playerTwo
       );
       setPlayerOne(PlayerOne);
