@@ -58,7 +58,6 @@ git clone git@github.com:darlanbbs/SuperHero-APP.git
 ```
 npm install
 ```
-ou 
 ```
 yarn
 ```  
@@ -67,7 +66,6 @@ yarn
 ```
 npm run dev
 ```
-ou 
 ```
 yarn run dev
 ```  
