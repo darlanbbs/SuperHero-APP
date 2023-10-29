@@ -32,11 +32,12 @@ export default function BasicModal() {
 
   const fetchData = async () => {
     try {
-      const data = await fetchApiData();
-      const PlayerOne = data.data.find(
+      const dataPlayerOne = await fetchApiData();
+      const dataPlayerTwo = await fetchApiData();
+      const PlayerOne = dataPlayerOne.data.data.find(
         (item: Superhero) => item.id === useContext.playerOne
       );
-      const PlayerTwo = data.data.find(
+      const PlayerTwo = dataPlayerTwo.data.data.find(
         (item: Superhero) => item.id === useContext.playerTwo
       );
       setPlayerOne(PlayerOne);
@@ -66,10 +67,10 @@ export default function BasicModal() {
         ? playerOne.name
         : pontuacaoPlayerOne < pontuacaoPlayerTwo
         ? playerTwo.name
-        : "Empate";
+        : "Draw";
     }
 
-    return "Empate";
+    return "Draw";
   };
 
   const winner = getWinner();

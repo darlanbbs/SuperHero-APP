@@ -15,20 +15,3 @@ export const fetchApiData = async () => {
     throw new Error(`Erro ao buscar dados da API: ${error}`);
   }
 };
-
-export const fetchApiDataById = async (id: number) => {
-  const url = `/api/heros/${id}`;
-
-  try {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    throw new Error(`Erro ao buscar dados da API: ${error}`);
-  }
-};
