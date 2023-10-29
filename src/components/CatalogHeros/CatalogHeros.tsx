@@ -12,6 +12,7 @@ function CatalogHeros() {
   const [dados, setDados] = useState<Superhero[]>([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [search, setSearch] = useState("");
+  const [dadosFiltrados, setDadosFiltrados] = useState<Superhero[]>([]);
   const itensPorPagina = 20;
 
   useEffect(() => {
@@ -26,18 +27,18 @@ function CatalogHeros() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const searchLowerCase = search.toLowerCase();
+    const filteredData = dados.filter((item) =>
+      item.biography.fullName.toLowerCase().includes(searchLowerCase)
+    );
+    setDadosFiltrados(filteredData);
+  }, [search, dados]);
+
   const startIndex = (paginaAtual - 1) * itensPorPagina;
   const endIndex = paginaAtual * itensPorPagina;
-  const dadosPaginados = dados ? dados.slice(startIndex, endIndex) : [];
-  const pageLength = dados ? Math.ceil(dados.length / itensPorPagina) : 0;
-
-  const searchLowerCase = search.toLowerCase();
-
-  const dadosFiltrados = dadosPaginados
-    ? dadosPaginados.filter((item) =>
-        item.biography.fullName.toLowerCase().includes(searchLowerCase)
-      )
-    : [];
+  const dadosPaginados = dadosFiltrados.slice(startIndex, endIndex);
+  const pageLength = Math.ceil(dadosFiltrados.length / itensPorPagina);
 
   const handleChange = (event: any) => {
     setSearch(event.target.value as string);
@@ -49,7 +50,7 @@ function CatalogHeros() {
       {dadosPaginados.length > 0 ? (
         <div>
           <Grid container spacing={4}>
-            {dadosFiltrados.map((item) => (
+            {dadosPaginados.map((item) => (
               <Grid key={item.id} item xs={12} sm={6} md={4}>
                 <CardHero superhero={item} key={item.id} />
               </Grid>
