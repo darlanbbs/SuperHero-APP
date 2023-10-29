@@ -29,8 +29,13 @@ const BattleButton = ({ id }: ButtonBattleProps) => {
 
   return (
     <button
-      className="bg-red-500 text-white px-4 py-2 rounded"
+      className={`px-4 py-2 rounded ${
+        useContext.playerOne !== 0 && useContext.playerTwo !== 0
+          ? "bg-red-500 text-white opacity-50 cursor-not-allowed"
+          : "bg-red-500 text-white"
+      }`}
       onClick={openToast}
+      disabled={useContext.playerOne !== 0 && useContext.playerTwo !== 0}
     >
       Battle
     </button>
