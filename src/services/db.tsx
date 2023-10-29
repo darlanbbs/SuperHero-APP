@@ -1,6 +1,6 @@
 "use client";
 export const fetchApiData = async () => {
-  const url = process.env.BASE_URL || "";
+  const url = "/api/heros";
 
   try {
     const response = await fetch(url);
