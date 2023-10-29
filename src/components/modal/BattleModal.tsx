@@ -33,10 +33,10 @@ export default function BasicModal() {
   const fetchData = async () => {
     try {
       const data = await fetchApiData();
-      const PlayerOne = data.find(
+      const PlayerOne = data.data.find(
         (item: Superhero) => item.id === useContext.playerOne
       );
-      const PlayerTwo = data.find(
+      const PlayerTwo = data.data.find(
         (item: Superhero) => item.id === useContext.playerTwo
       );
       setPlayerOne(PlayerOne);

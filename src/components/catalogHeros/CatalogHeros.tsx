@@ -18,7 +18,7 @@ function CatalogHeros() {
     const fetchData = async () => {
       try {
         const data = await fetchApiData();
-        setDados(data);
+        setDados(data.data);
       } catch (error) {
         console.error(error);
       }
