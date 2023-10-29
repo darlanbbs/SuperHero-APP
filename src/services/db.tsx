@@ -1,6 +1,6 @@
-"use client"
+"use client";
 export const fetchApiData = async () => {
-  const url = "http://homologacao3.azapfy.com.br/api/ps/metahumans";
+  const url = process.env.BASE_URL || "";
 
   try {
     const response = await fetch(url);
